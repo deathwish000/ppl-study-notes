@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hypoxia — Definition and Types</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f7f7f5; color: #1a1a1a; padding: 2rem; }
+  .wrap { max-width: 960px; margin: 0 auto; }
+  .page-title { font-size: 28px; font-weight: 600; color: #1a1a1a; margin: 0 0 4px; }
+  .page-sub { font-size: 14px; color: #888; margin: 0 0 28px; }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #aaa; margin: 0 0 10px; }
+  .def-box { background: #f0f0ec; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 24px; }
+  .def-text { font-size: 15px; color: #1a1a1a; line-height: 1.6; margin: 0 0 8px; }
+  .def-sub { font-size: 13px; color: #888; margin: 0; }
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 28px; }
+  .card { background: #fff; border: 1px solid #e8e8e5; border-radius: 12px; padding: 1rem 1.25rem; }
+  .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .card-letter { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 600; flex-shrink: 0; }
+  .card-title { font-size: 15px; font-weight: 500; color: #1a1a1a; margin: 0; }
+  .card-subtitle { font-size: 12px; color: #888; margin: 2px 0 0; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 6px; margin-bottom: 10px; }
+  .badge-red { background: #FCEBEB; color: #791F1F; }
+  .badge-amber { background: #FAEEDA; color: #633806; }
+  .badge-blue { background: #E6F1FB; color: #0C447C; }
+  .badge-teal { background: #E1F5EE; color: #085041; }
+  .prop-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 5px 0; border-bottom: 1px solid #f0f0ec; gap: 8px; }
+  .prop-row:last-child { border-bottom: none; }
+  .prop-key { font-size: 12px; color: #888; flex-shrink: 0; }
+  .prop-val { font-size: 12px; color: #1a1a1a; text-align: right; }
+  .danger-block { border-radius: 6px; padding: 8px 12px; margin-top: 10px; font-size: 12px; line-height: 1.5; }
+  .danger-red { background: #FCEBEB; color: #791F1F; }
+  .danger-amber { background: #FAEEDA; color: #633806; }
+  .danger-blue { background: #E6F1FB; color: #0C447C; }
+  .danger-teal { background: #E1F5EE; color: #085041; }
+  .divider { border: none; border-top: 1px solid #e8e8e5; margin: 28px 0; }
+  .symptoms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 28px; }
+  .symptom-card { background: #fff; border: 1px solid #e8e8e5; border-radius: 12px; padding: 1rem 1.25rem; }
+  .symptom-title { font-size: 13px; font-weight: 500; margin: 0 0 8px; }
+  .symptom-item { font-size: 12px; color: #555; padding: 3px 0; display: flex; align-items: flex-start; gap: 6px; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+  .table-wrap { background: #fff; border: 1px solid #e8e8e5; border-radius: 12px; overflow: hidden; margin-bottom: 28px; }
+  .tuc-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .tuc-table th { font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: #aaa; padding: 8px 12px; text-align: left; border-bottom: 1px solid #e8e8e5; }
+  .tuc-table td { padding: 10px 12px; border-bottom: 1px solid #f0f0ec; color: #1a1a1a; }
+  .tuc-table tr:last-child td { border-bottom: none; }
+  .pill { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 999px; }
+  .pill-red { background: #FCEBEB; color: #791F1F; }
+  .pill-amber { background: #FAEEDA; color: #633806; }
+  .pill-green { background: #EAF3DE; color: #27500A; }
+  .chain-box { background: #f0f0ec; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 28px; }
+  .chain-step { display: flex; align-items: flex-start; gap: 10px; padding: 5px 0; }
+  .chain-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+  .chain-text { font-size: 13px; color: #1a1a1a; }
+  .chain-arrow { font-size: 12px; color: #ccc; padding: 0 0 0 18px; }
+  .memory-box { background: #f0f0ec; border-radius: 12px; padding: 1rem 1.25rem; }
+  .memory-title { font-size: 13px; font-weight: 500; color: #1a1a1a; margin: 0 0 8px; }
+  .memory-item { font-size: 13px; color: #555; padding: 3px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="page-title">Hypoxia — definition and types</p>
+  <p class="page-sub">HP&L reference — HASH types, symptoms, TUC, and countermeasures</p>
+
+  <p class="section-label">Definition</p>
+  <div class="def-box">
+    <p class="def-text">Hypoxia is an insufficient supply of oxygen reaching the body tissues, impairing normal function of the brain and organs.</p>
+    <p class="def-sub">"Hypo" = under/insufficient — "Oxia" = oxygen</p>
+  </div>
+
+  <p class="section-label">The four types — HASH</p>
+  <div class="cards-grid">
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-letter" style="background:#FCEBEB; color:#791F1F;">H</div>
+        <div>
+          <p class="card-title">Hypoxic</p>
+          <p class="card-subtitle">Most common in aviation!!</p>
+        </div>
+      </div>
+      <div class="badge badge-red">Not enough O2 in the air</div>
+      <div class="prop-row"><span class="prop-key">Cause</span><span class="prop-val">Reduced O2 partial pressure at altitude</span></div>
+      <div class="prop-row"><span class="prop-key">Onset</span><span class="prop-val">Above 10,000ft</span></div>
+      <div class="prop-row"><span class="prop-key">Night vision</span><span class="prop-val">Affected from 5,000ft!!</span></div>
+      <div class="danger-block danger-red">At 18,000ft pressure is HALVED — only half the O2 available per breath</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-letter" style="background:#FAEEDA; color:#633806;">A</div>
+        <div>
+          <p class="card-title">Anaemic</p>
+          <p class="card-subtitle">Blood can't carry O2</p>
+        </div>
+      </div>
+      <div class="badge badge-amber">Haemoglobin problem</div>
+      <div class="prop-row"><span class="prop-key">Cause 1</span><span class="prop-val">CO poisoning</span></div>
+      <div class="prop-row"><span class="prop-key">Cause 2</span><span class="prop-val">Anaemia (low haemoglobin)</span></div>
+      <div class="prop-row"><span class="prop-key">Cause 3</span><span class="prop-val">Blood loss</span></div>
+      <div class="danger-block danger-amber">CO binds to haemoglobin 200x stronger than O2 — colourless and odourless!!</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-letter" style="background:#E6F1FB; color:#0C447C;">S</div>
+        <div>
+          <p class="card-title">Stagnant</p>
+          <p class="card-subtitle">Blood not circulating</p>
+        </div>
+      </div>
+      <div class="badge badge-blue">Circulation problem</div>
+      <div class="prop-row"><span class="prop-key">Cause 1</span><span class="prop-val">G-forces (blood pools in legs)</span></div>
+      <div class="prop-row"><span class="prop-key">Cause 2</span><span class="prop-val">Heart problems</span></div>
+      <div class="prop-row"><span class="prop-key">Cause 3</span><span class="prop-val">Shock or tight clothing</span></div>
+      <div class="danger-block danger-blue">O2 in blood is fine but blood not reaching tissues — leads to grey-out and G-LOC</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-letter" style="background:#E1F5EE; color:#085041;">H</div>
+        <div>
+          <p class="card-title">Histotoxic</p>
+          <p class="card-subtitle">Cells can't use O2</p>
+        </div>
+      </div>
+      <div class="badge badge-teal">Cellular problem</div>
+      <div class="prop-row"><span class="prop-key">Cause 1</span><span class="prop-val">Alcohol poisoning</span></div>
+      <div class="prop-row"><span class="prop-key">Cause 2</span><span class="prop-val">Drugs / narcotics</span></div>
+      <div class="prop-row"><span class="prop-key">Cause 3</span><span class="prop-val">Cyanide poisoning</span></div>
+      <div class="danger-block danger-teal">O2 delivered perfectly but cells REFUSE to use it — explains why alcohol is so dangerous for pilots</div>
+    </div>
+
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-label">Symptoms by severity</p>
+  <div class="symptoms-grid">
+
+    <div class="symptom-card">
+      <p class="symptom-title" style="color:#639922;">Mild — above 10,000ft</p>
+      <div class="symptom-item"><div class="dot" style="background:#639922;"></div>Euphoria / feeling great (most dangerous!!)</div>
+      <div class="symptom-item"><div class="dot" style="background:#639922;"></div>False sense of wellbeing</div>
+      <div class="symptom-item"><div class="dot" style="background:#639922;"></div>Slight impairment of judgement</div>
+      <div class="symptom-item"><div class="dot" style="background:#639922;"></div>Night vision deteriorates</div>
+    </div>
+
+    <div class="symptom-card">
+      <p class="symptom-title" style="color:#BA7517;">Moderate — 15,000–20,000ft</p>
+      <div class="symptom-item"><div class="dot" style="background:#BA7517;"></div>Headache and dizziness</div>
+      <div class="symptom-item"><div class="dot" style="background:#BA7517;"></div>Visual impairment</div>
+      <div class="symptom-item"><div class="dot" style="background:#BA7517;"></div>Impaired judgement and decisions</div>
+      <div class="symptom-item"><div class="dot" style="background:#BA7517;"></div>Muscle weakness</div>
+      <div class="symptom-item"><div class="dot" style="background:#BA7517;"></div>Cyanosis begins (blue lips/nails)</div>
+    </div>
+
+    <div class="symptom-card">
+      <p class="symptom-title" style="color:#791F1F;">Severe — above 20,000ft</p>
+      <div class="symptom-item"><div class="dot" style="background:#791F1F;"></div>Severe confusion</div>
+      <div class="symptom-item"><div class="dot" style="background:#791F1F;"></div>Loss of muscle control</div>
+      <div class="symptom-item"><div class="dot" style="background:#791F1F;"></div>Tunnel vision</div>
+      <div class="symptom-item"><div class="dot" style="background:#791F1F;"></div>Loss of consciousness</div>
+      <div class="symptom-item"><div class="dot" style="background:#791F1F;"></div>Death if untreated</div>
+    </div>
+
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-label">Time of useful consciousness (TUC)</p>
+  <div class="table-wrap">
+    <table class="tuc-table">
+      <thead>
+        <tr><th>Altitude</th><th>TUC</th><th>Risk level</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>10,000ft</td><td>Indefinite (with mild symptoms)</td><td><span class="pill pill-green">Low</span></td></tr>
+        <tr><td>25,000ft</td><td>3–5 minutes</td><td><span class="pill pill-amber">High</span></td></tr>
+        <tr><td>30,000ft</td><td>1–2 minutes</td><td><span class="pill pill-red">Critical</span></td></tr>
+        <tr><td>35,000ft</td><td>30–60 seconds</td><td><span class="pill pill-red">Critical</span></td></tr>
+        <tr><td>40,000ft</td><td>15–20 seconds</td><td><span class="pill pill-red">Fatal without action</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-label">Countermeasures</p>
+  <div class="chain-box">
+    <div class="chain-step"><div class="chain-dot" style="background:#E24B4A;"></div><div class="chain-text">Recognise symptoms early — especially euphoria!!</div></div>
+    <div class="chain-arrow">↓</div>
+    <div class="chain-step"><div class="chain-dot" style="background:#378ADD;"></div><div class="chain-text">Descend immediately below 10,000ft</div></div>
+    <div class="chain-arrow">↓</div>
+    <div class="chain-step"><div class="chain-dot" style="background:#1D9E75;"></div><div class="chain-text">Use supplemental oxygen immediately</div></div>
+    <div class="chain-arrow">↓</div>
+    <div class="chain-step"><div class="chain-dot" style="background:#639922;"></div><div class="chain-text">Pressurised cabin — maintain below 8,000ft equivalent</div></div>
+    <div class="chain-arrow">↓</div>
+    <div class="chain-step"><div class="chain-dot" style="background:#888780;"></div><div class="chain-text">Know your TUC at cruise altitude before every flight</div></div>
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-label">Most dangerous symptom</p>
+  <div style="background:#FCEBEB; border-radius:12px; padding: 1rem 1.25rem; margin-bottom: 28px;">
+    <p style="font-size: 15px; font-weight: 500; color: #791F1F; margin: 0 0 6px;">Euphoria — the silent killer</p>
+    <p style="font-size: 13px; color: #A32D2D; margin: 0; line-height: 1.6;">Pilot feels GREAT while oxygen is dangerously low. No urge to take corrective action. This is why hypoxia kills — the pilot never realises anything is wrong until it is too late.</p>
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-label">Memory tricks</p>
+  <div class="memory-box">
+    <p class="memory-title">HASH — the four types</p>
+    <div class="memory-item">H — Hypoxic = not enough O2 in the AIR (altitude!)</div>
+    <div class="memory-item">A — Anaemic = blood can't CARRY O2 (CO poisoning!)</div>
+    <div class="memory-item">S — Stagnant = blood not MOVING (G-forces!)</div>
+    <div class="memory-item">H — Histotoxic = cells can't USE O2 (alcohol/drugs!)</div>
+    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #e8e8e5;">
+      <p class="memory-title">Quick symptom recall</p>
+      <div class="memory-item">Euphoria = mild hypoxia (most dangerous — feels fine!!)</div>
+      <div class="memory-item">Cyanosis = blue lips/nails = moderate hypoxia</div>
+      <div class="memory-item">Unconscious = severe hypoxia — act NOW!!</div>
+      <div class="memory-item">Night vision affected from just 5,000ft!!</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
