@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hyperventilation — HP&L Reference</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #191919; color: #e8e8e5; padding: 2rem; }
+  .wrap { max-width: 960px; margin: 0 auto; }
+  .page-title { font-size: 28px; font-weight: 600; color: #f0f0ec; margin: 0 0 4px; }
+  .page-sub { font-size: 14px; color: #666; margin: 0 0 28px; }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #555; margin: 0 0 10px; }
+  .def-box { background: #242424; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 24px; }
+  .def-text { font-size: 15px; color: #e8e8e5; line-height: 1.6; margin: 0 0 8px; }
+  .def-sub { font-size: 13px; color: #666; margin: 0; }
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 28px; }
+  .card { background: #242424; border: 1px solid #2e2e2e; border-radius: 12px; padding: 1rem 1.25rem; }
+  .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .card-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .card-title { font-size: 15px; font-weight: 500; color: #f0f0ec; margin: 0; }
+  .card-subtitle { font-size: 12px; color: #666; margin: 2px 0 0; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 6px; margin-bottom: 10px; }
+  .badge-blue { background: #0C2340; color: #85B7EB; }
+  .badge-amber { background: #2E1F08; color: #FAC775; }
+  .badge-teal { background: #042820; color: #5DCAA5; }
+  .badge-purple { background: #1E1040; color: #AFA9EC; }
+  .prop-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 5px 0; border-bottom: 1px solid #2e2e2e; gap: 8px; }
+  .prop-row:last-child { border-bottom: none; }
+  .prop-key { font-size: 12px; color: #666; flex-shrink: 0; }
+  .prop-val { font-size: 12px; color: #e8e8e5; text-align: right; }
+  .info-block { border-radius: 6px; padding: 8px 12px; margin-top: 10px; font-size: 12px; line-height: 1.5; }
+  .info-blue { background: #0C2340; color: #85B7EB; }
+  .info-amber { background: #2E1F08; color: #FAC775; }
+  .info-teal { background: #042820; color: #5DCAA5; }
+  .info-purple { background: #1E1040; color: #AFA9EC; }
+  .divider { border: none; border-top: 1px solid #2e2e2e; margin: 28px 0; }
+  .symptoms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 28px; }
+  .symptom-card { background: #242424; border: 1px solid #2e2e2e; border-radius: 12px; padding: 1rem 1.25rem; }
+  .symptom-title { font-size: 13px; font-weight: 500; margin: 0 0 8px; }
+  .symptom-item { font-size: 12px; color: #999; padding: 3px 0; display: flex; align-items: flex-start; gap: 6px; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+  .chain-box { background: #242424; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 28px; }
+  .chain-step { display: flex; align-items: flex-start; gap: 10px; padding: 5px 0; }
+  .chain-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+  .chain-text { font-size: 13px; color: #e8e8e5; }
+  .chain-arrow { font-size: 12px; color: #444; padding: 0 0 0 18px; }
+  .memory-box { background: #242424; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 28px; }
+  .memory-title { font-size: 13px; font-weight: 500; color: #f0f0ec; margin: 0 0 8px; }
+  .memory-item { font-size: 13px; color: #999; padding: 3px 0; }
+  .alert-box { border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 28px; }
+  .alert-blue { background: #0C2340; }
+  .alert-teal { background: #042820; }
+  .table-wrap { background: #242424; border: 1px solid #2e2e2e; border-radius: 12px; overflow: hidden; margin-bottom: 28px; }
+  .counter-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .counter-table th { font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: #555; padding: 8px 12px; text-align: left; border-bottom: 1px solid #2e2e2e; }
+  .counter-table td { padding: 10px 12px; border-bottom: 1px solid #2a2a2a; color: #e8e8e5; vertical-align: top; }
+  .counter-table tr:last-child td { border-bottom: none; }
+  .pill { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 999px; }
+  .pill-blue { background: #0C2340; color: #85B7EB; }
+  .pill-teal { background: #042820; color: #5DCAA5; }
+  .pill-amber { background: #2E1F08; color: #FAC775; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="page-title">Hyperventilation</p>
+  <p class="page-sub">HP&L reference — definition, causes, chemistry, symptoms, and countermeasures</p>
+
+  <p class="section-label">Definition</p>
+  <div class="def-box">
+    <p class="def-text">Hyperventilation is breathing too fast or too deep, causing excessive CO2 to be expelled from the body, creating a dangerous chemical imbalance in the blood.</p>
+    <p class="def-sub">NOT an oxygen problem — it is a CO2 imbalance problem!!</p>
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-label">The chemistry — why it causes symptoms</p>
+  <div class="chain-box">
+    <div class="chain-step"><div class="chain-dot" style="background:#85B7EB;"></div><div class="chain-text">Breathing too fast or too deep</div></div>
+    <div class="chain-arrow">↓</div>
+    <div class="chain-step"><div class="chain-dot" style="background:#FAC775;"></div><div class="chain-text">Too much CO2 expelled from lungs</div></div>
+    <div class="chain-arrow">↓</div>
+    <div class="chain-step"><div class="chain-dot" style="background:#AFA9EC;"></div><div class="chain-text">Blood CO2 levels drop (hypocapnia)</div></div>
+    <div class="chain-arrow">↓</div>
+    <div class="chain-step"><div class="chain-dot" style="background:#5DCAA5;"></div><div class="chain-text">Blood pH rises — becomes too alkaline</div></div>
+    <div class="chain-arrow">↓</div>
+    <div class="chain-step"><div class="chain-dot" style="background:#FAC775;"></div><div class="chain-text">Blood vessels constrict throughout body</div></div>
+    <div class="chain-arrow">↓</div>
+    <div class="chain-step"><div class="chain-dot" style="background:#F09595;"></div><div class="chain-text">Less calcium available to muscles = tetany/spasms</div></div>
+    <div class="chain-arrow">↓</div>
+    <div class="chain-step"><div class="chain-dot" style="background:#E24B4A;"></div><div class="chain-text">Less blood reaching brain = dizziness, confusion, unconsciousness</div></div>
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-label">Common causes in aviation</p>
+  <div class="cards-grid">
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#2E1F08;">😰</div>
+        <div><p class="card-title">Anxiety and stress</p><p class="card-subtitle">Most common cause!!</p></div>
+      </div>
+      <div class="badge badge-amber">Psychological</div>
+      <div class="prop-row"><span class="prop-key">Example</span><span class="prop-val">Student pilot on first solo</span></div>
+      <div class="prop-row"><span class="prop-key">Example</span><span class="prop-val">Emergency situation in cockpit</span></div>
+      <div class="info-block info-amber">Anxiety triggers faster breathing automatically — pilot often unaware it is happening</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#0C2340;">🤒</div>
+        <div><p class="card-title">Pain or illness</p><p class="card-subtitle">Physical trigger</p></div>
+      </div>
+      <div class="badge badge-blue">Physical</div>
+      <div class="prop-row"><span class="prop-key">Example</span><span class="prop-val">Injury during flight</span></div>
+      <div class="prop-row"><span class="prop-key">Example</span><span class="prop-val">Nausea or illness</span></div>
+      <div class="info-block info-blue">Pain response naturally increases breathing rate — can spiral quickly</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#042820;">🌡️</div>
+        <div><p class="card-title">Heat and turbulence</p><p class="card-subtitle">Environmental trigger</p></div>
+      </div>
+      <div class="badge badge-teal">Environmental</div>
+      <div class="prop-row"><span class="prop-key">Example</span><span class="prop-val">Hot cockpit</span></div>
+      <div class="prop-row"><span class="prop-key">Example</span><span class="prop-val">Severe turbulence</span></div>
+      <div class="info-block info-teal">Hot conditions and physical stress both increase breathing rate naturally</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#1E1040;">⚠️</div>
+        <div><p class="card-title">Hypoxia induced</p><p class="card-subtitle">Dangerous overlap!!</p></div>
+      </div>
+      <div class="badge badge-purple">Critical</div>
+      <div class="prop-row"><span class="prop-key">Mechanism</span><span class="prop-val">Hypoxia triggers faster breathing</span></div>
+      <div class="prop-row"><span class="prop-key">Result</span><span class="prop-val">Both conditions simultaneously!!</span></div>
+      <div class="info-block info-purple">Hypoxia can CAUSE hyperventilation — making diagnosis and treatment extremely difficult!!</div>
+    </div>
+
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-label">Symptoms in order of progression</p>
+  <div class="symptoms-grid">
+
+    <div class="symptom-card">
+      <p class="symptom-title" style="color:#85B7EB;">Early symptoms</p>
+      <div class="symptom-item"><div class="dot" style="background:#85B7EB;"></div>Rapid breathing (the CAUSE!!)</div>
+      <div class="symptom-item"><div class="dot" style="background:#85B7EB;"></div>Anxiety and panic</div>
+      <div class="symptom-item"><div class="dot" style="background:#85B7EB;"></div>Dizziness</div>
+      <div class="symptom-item"><div class="dot" style="background:#85B7EB;"></div>Chest tightness</div>
+    </div>
+
+    <div class="symptom-card">
+      <p class="symptom-title" style="color:#FAC775;">Progressing symptoms</p>
+      <div class="symptom-item"><div class="dot" style="background:#FAC775;"></div>Tingling fingers and lips ⭐ KEY!!</div>
+      <div class="symptom-item"><div class="dot" style="background:#FAC775;"></div>Numbness in hands and feet</div>
+      <div class="symptom-item"><div class="dot" style="background:#FAC775;"></div>Headache</div>
+      <div class="symptom-item"><div class="dot" style="background:#FAC775;"></div>Confusion</div>
+    </div>
+
+    <div class="symptom-card">
+      <p class="symptom-title" style="color:#F09595;">Severe symptoms</p>
+      <div class="symptom-item"><div class="dot" style="background:#F09595;"></div>Muscle spasms / tetany ⭐ UNIQUE!!</div>
+      <div class="symptom-item"><div class="dot" style="background:#F09595;"></div>Muscle cramps and lockup</div>
+      <div class="symptom-item"><div class="dot" style="background:#F09595;"></div>Loss of consciousness</div>
+      <div class="symptom-item"><div class="dot" style="background:#F09595;"></div>Incapacitation</div>
+    </div>
+
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-label">Two KEY identifying symptoms — unique to hyperventilation!!</p>
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-bottom: 28px;">
+
+    <div class="alert-box alert-blue">
+      <p style="font-size: 15px; font-weight: 500; color: #85B7EB; margin: 0 0 6px;">Tingling fingers and lips</p>
+      <p style="font-size: 13px; color: #5E8FBF; margin: 0; line-height: 1.6;">The most important identifying symptom!! If a pilot experiences tingling in the fingers or lips = hyperventilation, NOT hypoxia. This symptom does NOT occur in hypoxia!!</p>
+    </div>
+
+    <div class="alert-box alert-teal">
+      <p style="font-size: 15px; font-weight: 500; color: #5DCAA5; margin: 0 0 6px;">Tetany — muscle spasms</p>
+      <p style="font-size: 13px; color: #3A8A6E; margin: 0; line-height: 1.6;">Muscle spasms and lockup caused by CO2 loss reducing calcium availability. This is UNIQUE to hyperventilation — never occurs in hypoxia. Many students incorrectly assign this to hypoxia!!</p>
+    </div>
+
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-label">Countermeasures</p>
+  <div class="table-wrap">
+    <table class="counter-table">
+      <thead>
+        <tr><th>Method</th><th>How</th><th>Why it works</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pill pill-blue">Primary</span><br>Slow breathing down</td>
+          <td>Conscious effort to breathe slowly and deeply</td>
+          <td>Allows CO2 levels to rebuild in blood</td>
+        </tr>
+        <tr>
+          <td><span class="pill pill-teal">Secondary</span><br>Paper bag method</td>
+          <td>Breathe in and out of paper bag</td>
+          <td>Rebreathes expelled CO2 — restores blood balance</td>
+        </tr>
+        <tr>
+          <td><span class="pill pill-blue">Alternative</span><br>Talk out loud</td>
+          <td>Read checklist aloud, talk to ATC</td>
+          <td>Forces slower breathing pattern naturally</td>
+        </tr>
+        <tr>
+          <td><span class="pill pill-amber">If unsure</span><br>Use oxygen</td>
+          <td>Put on supplemental oxygen immediately</td>
+          <td>Rules out hypoxia — treat most dangerous first!!</td>
+        </tr>
+        <tr>
+          <td><span class="pill pill-teal">Always</span><br>Remove cause</td>
+          <td>Reduce anxiety, pain, heat if possible</td>
+          <td>Eliminates the trigger causing fast breathing</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-label">The dangerous overlap with hypoxia</p>
+  <div class="chain-box" style="border: 1px solid #3C1515;">
+    <p style="font-size: 13px; font-weight: 500; color: #F09595; margin: 0 0 12px;">Both conditions share these symptoms — making diagnosis difficult!!</p>
+    <div class="chain-step"><div class="chain-dot" style="background:#FAC775;"></div><div class="chain-text">Dizziness — shared by both</div></div>
+    <div class="chain-step"><div class="chain-dot" style="background:#FAC775;"></div><div class="chain-text">Confusion — shared by both</div></div>
+    <div class="chain-step"><div class="chain-dot" style="background:#FAC775;"></div><div class="chain-text">Headache — shared by both</div></div>
+    <div class="chain-step"><div class="chain-dot" style="background:#FAC775;"></div><div class="chain-text">Impaired judgement — shared by both</div></div>
+    <div class="chain-step"><div class="chain-dot" style="background:#FAC775;"></div><div class="chain-text">Unconsciousness if untreated — shared by both</div></div>
+    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #2e2e2e;">
+      <p style="font-size: 13px; font-weight: 500; color: #5DCAA5; margin: 0 0 8px;">Golden rule when unsure:</p>
+      <p style="font-size: 13px; color: #3A8A6E; line-height: 1.6;">Always treat for HYPOXIA first!! Hypoxia is more immediately fatal. Put on oxygen AND slow your breathing — this covers both conditions simultaneously!!</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-label">Aviation context — when does it happen?</p>
+  <div class="cards-grid">
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#2E1F08;">✈️</div>
+        <div><p class="card-title">High risk situations</p><p class="card-subtitle">When to expect it</p></div>
+      </div>
+      <div class="prop-row"><span class="prop-key">Student pilots</span><span class="prop-val">First solo, checkrides</span></div>
+      <div class="prop-row"><span class="prop-key">Emergencies</span><span class="prop-val">Any unexpected situation</span></div>
+      <div class="prop-row"><span class="prop-key">Hot cockpit</span><span class="prop-val">Summer operations</span></div>
+      <div class="prop-row"><span class="prop-key">Turbulence</span><span class="prop-val">Stressful conditions</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#042820;">🛡️</div>
+        <div><p class="card-title">Prevention</p><p class="card-subtitle">How to avoid it</p></div>
+      </div>
+      <div class="prop-row"><span class="prop-key">IMSAFE check</span><span class="prop-val">Stress assessment before flight</span></div>
+      <div class="prop-row"><span class="prop-key">Stay calm</span><span class="prop-val">Trained responses, not panic</span></div>
+      <div class="prop-row"><span class="prop-key">Ventilation</span><span class="prop-val">Keep cockpit cool</span></div>
+      <div class="prop-row"><span class="prop-key">Awareness</span><span class="prop-val">Know the symptoms!!</span></div>
+    </div>
+
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-label">Memory tricks</p>
+  <div class="memory-box">
+    <p class="memory-title">Unique hyperventilation symptoms — never forget these!!</p>
+    <div class="memory-item">Tingling fingers/lips = HYPERVENTILATION only!!</div>
+    <div class="memory-item">Muscle spasms/tetany = HYPERVENTILATION only!!</div>
+    <div class="memory-item">Rapid breathing = the CAUSE not just a symptom!!</div>
+    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #2e2e2e;">
+      <p class="memory-title">The core difference</p>
+      <div class="memory-item">Hypoxia = TOO LITTLE oxygen reaching tissues</div>
+      <div class="memory-item">Hyperventilation = TOO MUCH CO2 expelled from blood</div>
+      <div class="memory-item">Hypoxia = oxygen problem</div>
+      <div class="memory-item">Hyperventilation = CO2 balance problem!!</div>
+    </div>
+    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #2e2e2e;">
+      <p class="memory-title">Treatment memory</p>
+      <div class="memory-item">SLOW DOWN breathing = primary treatment</div>
+      <div class="memory-item">Paper BAG = rebreathes CO2 back in</div>
+      <div class="memory-item">TALK aloud = forces slower breathing</div>
+      <div class="memory-item">If UNSURE = treat hypoxia first!!</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
